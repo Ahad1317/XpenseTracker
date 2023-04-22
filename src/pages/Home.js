@@ -6,6 +6,12 @@ const Home = () => {
   const [fetchError, setFetchError] = useState(null)
   const [expenses, setExpenses] = useState(null)
 
+  const handleDelete = (id) => {
+    setExpenses(prevExpenses => {
+      return prevExpenses.filter(sm => sm.id !== id)
+    })
+  }
+
   useEffect(() => {
     const fetchExpenses = async () => {
       const { data, error } = await supabase
@@ -36,7 +42,9 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             {
               expenses.map(expense => (
-                  <ExpenseCard key= {expense.id} expense={expense}/>
+                  <ExpenseCard key= {expense.id} expense={expense}
+                  onDelete={handleDelete}
+                  />
               ))}
           </div>
           </div>
