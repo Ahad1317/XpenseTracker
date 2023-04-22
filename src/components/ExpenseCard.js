@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const ExpenseCard = ({expense}) => {
     return ( 
         <div className="expense-card rounded-lg p-4 md:p-8 text-lg md:text-2xl bg-black text-white">
@@ -5,6 +7,11 @@ const ExpenseCard = ({expense}) => {
             <p className="mb-2">{expense.category}</p>
             <p className="mb-2">{expense.date}</p>         
             <div className="amount text-2xl md:text-4xl font-bold text-cyan-400">{expense.amount}</div>
+            <div className="button">
+            <Link to={"/" + expense.id}>
+          <button className="bg-red-500 hover:bg-blue-700 text-white font-bold mt-5 px-4 rounded" type="button">Edit</button>
+        </Link>
+            </div>
         </div>
     )
 }
