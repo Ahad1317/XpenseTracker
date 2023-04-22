@@ -1,0 +1,30 @@
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import Home from "./pages/Home"
+import Create from "./pages/Create"
+import Update from "./pages/Update"
+
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav className=" bg-black flex justify-between items-center px-4 py-3 bg-primary-500">
+      <div className="flex items-center">
+        <h1 className="text-white font-bold text-4xl">Xpence Tracker</h1>
+        </div>
+        <div className="flex items-center">
+        <Link to="/" className="text-white text-xl hover:text-gray-300 mr-4 border-b-2 border-transparent hover:border-white">Home</Link>
+        <Link to="/create" className="bg-white text-primary-500 rounded-md py-2 px-4 shadow-md hover:bg-cyan-500 hover:text-white">Add new expense</Link>
+        </div>
+      </nav>
+      <div className="page">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/:id" element={<Update />} />
+      </Routes>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;
