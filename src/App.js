@@ -12,7 +12,7 @@ function App() {
         <h1 className="text-white font-bold lg:text-4xl">Xpence Tracker</h1>
         </div>
         <div className="flex items-center">
-        <Link to="/" className="text-white text-xl hover:text-gray-300 mr-4 border-b-2 border-transparent hover:border-white">Home</Link>
+        <Link to="/" className="text-white lg:text-xl hover:text-gray-300 mr-4 border-b-2 border-transparent hover:border-white">Home</Link>
         <Link to="/create" className="bg-white text-primary-500 rounded-md py-2 px-4 shadow-md hover:bg-cyan-500 hover:text-white">Add new expense</Link>
         </div>
       </nav>
