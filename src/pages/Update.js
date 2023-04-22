@@ -11,7 +11,29 @@ const Update = () => {
   const [category, setCategory] = useState('')
   const [date, setDate] = useState('')
   const [amount, setAmount] = useState('')
+  const [formError, setFormError] = useState(null)
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    if (!name || !category || !date || !amount) {
+      setFormError('Fill every field !!')
+      return
+    }
+
+    const { data, error } = await supabase
+      .from('xpense')
+      .update({ name, category, date, amount })
+      .eq('id', id)
+
+    if (error) {
+      setFormError('Fill correctly !!')
+    }
+    if (data) {
+      setFormError(null)
+      navigate('/')
+    }
+  }
 
   useEffect(() => {
     const fetchExpense = async () => {
@@ -37,7 +59,7 @@ const Update = () => {
 
   return (
     <div className="updatePage bg-gray-100 min-h-screen pt-20 px-10 lg:px-auto">
-       <form className="max-w-md mx-auto bg-cyan-300 rounded-lg shadow-lg p-6">
+       <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-cyan-300 rounded-lg shadow-lg p-6">
         <div className="mb-4">
           <label htmlFor="name" className="block text-black font-bold mb-2">Name:</label>
           <input 
@@ -84,7 +106,7 @@ const Update = () => {
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
           Update Expense
         </button>
-        {/* {formError && <p className="error">{formError}</p>} */}
+        {formError && <p className="error">{formError}</p>}
       </form>
     </div>
   )
