@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import Home from "./pages/Home"
 import Create from "./pages/Create"
 import Update from "./pages/Update"
+import Filter from "./pages/Filter"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         </div>
         <div className="flex items-center">
         <Link to="/" className="text-white lg:text-xl hover:text-gray-300 mr-4 border-b-2 border-transparent hover:border-white">Home</Link>
+        <Link to="/filter" className="text-white lg:text-xl hover:text-gray-300 mr-4 border-b-2 border-transparent hover:border-white">Filter</Link>
         <Link to="/create" className="bg-white text-primary-500 rounded-md py-2 px-4 shadow-md hover:bg-cyan-500 hover:text-white">Add new expense</Link>
         </div>
       </nav>
@@ -19,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<Create />} />
+        <Route path="/filter" element={<Filter/>}/>
         <Route path="/:id" element={<Update />} />
       </Routes>
       </div>
