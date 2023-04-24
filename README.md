@@ -1,6 +1,6 @@
 # EXPENSE TRACKER
 
-<h2><p>The applicaiton let's user add their expenses on the go, The application provides user friendly interface ans its responsive too, Other functionalities include updating and deleting the expenses, User can also filter the expenses accordingly. Tech stacks used : 
+<h2><p>The applicaiton let's user add their expenses on the go, The application provides user friendly interface and is responsive too, Other functionalities include updating and deleting the expenses, User can also filter the expenses accordingly. Tech stacks used : 
 </p><ul>
 <li> Frontend : React </li>
 <li> Styling : Tailwind css </li>
