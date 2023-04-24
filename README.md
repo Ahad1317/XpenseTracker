@@ -4,7 +4,7 @@
 </p><ul>
 <li> Frontend : React </li>
 <li> Styling : Tailwind css </li>
-<li> Backen : Tailwind css </li>
+<li> Backend data storing : Supabase </li>
 </ul>
 
 Host link : https://xpense-tracker.vercel.app/
